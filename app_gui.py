@@ -44,7 +44,8 @@ class BudgetApp:
             amt = simpledialog.askfloat("Income", "Enter amount:")
             if amt:
                 add_income(desc, amt)
-                save_transactions()
+                self.transactions = load_transactions()
+                save_transactions(self.transactions)
                 messagebox.showinfo("Success", "Income added successfully!")
 
     def add_expense_dialog(self):
@@ -53,7 +54,8 @@ class BudgetApp:
             amt = simpledialog.askfloat("Expense", "Enter amount:")
             if amt:
                 add_expense(desc, amt)
-                save_transactions()
+                self.transactions = load_transactions()
+                save_transactions(self.transactions)
                 messagebox.showinfo("Success", "Expense added successfully!")
 
     def view_transactions_dialog(self):
